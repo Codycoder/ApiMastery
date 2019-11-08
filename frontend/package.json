@@ -2,5 +2,15 @@
   "name": "frontend",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT"
-}
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.9.0"
+  },
+  
+    "scripts": {
+      "start": "webpack-dev-server --mode-development --content-base docs/ --open --hot",
+      "build": "webpack --mode production --content-base docs/ --output-path docs/"
+    }
+  }
