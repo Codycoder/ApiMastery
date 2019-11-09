@@ -25,14 +25,51 @@ namespace ApiMastery.Data
         {
             modelBuilder.Entity<Character>().HasData(
 
-            new Character()
-            {
-                ID = 1,
-                Name = "",
-                ProfessionID = 1,
-                Ability = "",
-                Image = ""
-            });
+                new Character()
+                {
+                    ID = 4,
+                    Name = "Bowser",
+                    Game = "Super Mario Bros.",
+                    ProfessionID = 2,
+                    Ability = "Flame Breath",
+                    Image = "./images/bowser.png"
+                },
 
+                new Character()
+                {
+                    ID = 5,
+                    Name = "Rosalina",
+                    Game = "Super Mario Galaxy",
+                    ProfessionID = 1,
+                    Ability = "Galactic Wand/Luma",
+                    Image = "./images/rosalina.png"
+                },
+
+                new Character()
+                {
+                    ID = 6,
+                    Name = "Dry Bones",
+                    Game = "Supeer Mario Bros. 3",
+                    ProfessionID = 3,
+                    Ability = "Reform",
+                    Image = "./images/drybones.png"
+                });
+
+            modelBuilder.Entity<Character>().HasData(
+
+                new Profession()
+                {
+                    ID = 2,
+                    Title = "Villain",
+                    CharacterID = 4,
+                },
+
+                new Profession()
+                {
+                    ID = 3,
+                    Title = "Minion",
+                    CharacterID = 4,
+                });
         }
     }
+}
