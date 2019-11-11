@@ -27,6 +27,36 @@ namespace ApiMastery.Data
 
                 new Character()
                 {
+                    ID = 1,
+                    Name = "Princess Toadstool",
+                    Game = "Super Mario Bros. 2",
+                    ProfessionID = 1,
+                    Ability = "Float",
+                    Image = "./images/princesstoadstool.png"
+                },
+
+                new Character()
+                {
+                    ID = 2,
+                    Name = "Wario",
+                    Game = "Super Mario Land 2",
+                    ProfessionID = 2,
+                    Ability = "Invulnerability",
+                    Image = "./images/wario.png"
+                },
+
+                new Character()
+                {
+                    ID = 3,
+                    Name = "Mouser",
+                    Game = "Super Mario Bros 2",
+                    ProfessionID = 2,
+                    Ability = "Throws bombs",
+                    Image = "./images/mouser.png"
+                },
+
+                new Character()
+                {
                     ID = 4,
                     Name = "Bowser",
                     Game = "Super Mario Bros.",
@@ -49,13 +79,20 @@ namespace ApiMastery.Data
                 {
                     ID = 6,
                     Name = "Dry Bones",
-                    Game = "Supeer Mario Bros. 3",
+                    Game = "Super Mario Bros. 3",
                     ProfessionID = 3,
                     Ability = "Reform",
                     Image = "./images/drybones.png"
                 });
 
             modelBuilder.Entity<Character>().HasData(
+
+                new Profession()
+                {
+                    ID = 1,
+                    Title = "Hero",
+                    CharacterID = 1,
+                },
 
                 new Profession()
                 {
