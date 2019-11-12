@@ -10,7 +10,7 @@ namespace ApiMastery.Data
     public class CharacterContext : DbContext
     {
         public DbSet<Character> Characters { get; set; }
-        public DbSet<Profession> Profesions { get; set; }
+        public DbSet<Profession> Professions { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -110,3 +110,4 @@ namespace ApiMastery.Data
         }
     }
 }
+
