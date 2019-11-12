@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ApiMastery.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/character")]
     [ApiController]
     public class CharacterController : ControllerBase
     {

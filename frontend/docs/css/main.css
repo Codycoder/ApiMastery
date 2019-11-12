@@ -1,0 +1,62 @@
+body{
+    color: rgb(148, 41, 2);
+    background-color: rgb(247, 234, 164);
+}
+#charIMG{
+    border: .25rem solid rgb(148, 41, 2);
+    border-radius: 10rem;
+    padding: .5rem;
+    width: 10.5rem;
+    height: 12rem;
+}
+#compIMG{
+    border: .5rem solid rgb(148, 41, 2);
+    border-radius: 20rem;
+    padding: .5rem;
+    width: 10rem;
+    height: 12rem;
+}
+#characterButton{
+    background-color: rgb(148, 41, 2);
+    color: rgb(247, 234, 164);
+    border-radius: 3rem;
+}
+#companyButton{
+    background-color: rgb(148, 41, 2);
+    color: rgb(247, 234, 164);
+    border-radius: 3rem;
+}
+#app{
+    display: grid;
+    padding-left: 2.5rem;
+    grid-template-columns: repeat(3, 15rem);
+    grid-gap: 1rem 1.5rem;
+    grid-template-rows: repeat(2, 29rem);
+    width: 42rem;
+}
+.company{
+    display: flexbox;
+    flex-direction: row;
+    align-items: center;
+    height: 20rem;
+    justify-content: center;
+    /* padding-left: 2.5rem;
+    grid-template-columns: repeat(2, 18rem);
+    grid-gap: 1rem 1.5rem;
+    grid-template-rows: repeat(1, 25rem);
+    width: 42rem; */
+}
+.header{
+    position: relative;
+    text-align: center;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+.footer{
+    position: relative;
+    text-align: center;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}

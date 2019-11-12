@@ -10,7 +10,7 @@ namespace ApiMastery.Data
     public class CharacterContext : DbContext
     {
         public DbSet<Character> Characters { get; set; }
-        public DbSet<Profession> Professions { get; set; }
+        public DbSet<Company> Companies { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -30,7 +30,7 @@ namespace ApiMastery.Data
                     ID = 1,
                     Name = "Princess Toadstool",
                     Game = "Super Mario Bros. 2",
-                    ProfessionID = 1,
+                    CompanyID = 1,
                     Ability = "Float",
                     Image = "./images/princesstoadstool.png"
                 },
@@ -40,7 +40,7 @@ namespace ApiMastery.Data
                     ID = 2,
                     Name = "Wario",
                     Game = "Super Mario Land 2",
-                    ProfessionID = 2,
+                    CompanyID = 1,
                     Ability = "Invulnerability",
                     Image = "./images/wario.png"
                 },
@@ -50,7 +50,7 @@ namespace ApiMastery.Data
                     ID = 3,
                     Name = "Mouser",
                     Game = "Super Mario Bros 2",
-                    ProfessionID = 2,
+                    CompanyID = 1,
                     Ability = "Throws bombs",
                     Image = "./images/mouser.png"
                 },
@@ -60,7 +60,7 @@ namespace ApiMastery.Data
                     ID = 4,
                     Name = "Bowser",
                     Game = "Super Mario Bros.",
-                    ProfessionID = 2,
+                    CompanyID = 1,
                     Ability = "Flame Breath",
                     Image = "./images/bowser.png"
                 },
@@ -70,7 +70,7 @@ namespace ApiMastery.Data
                     ID = 5,
                     Name = "Rosalina",
                     Game = "Super Mario Galaxy",
-                    ProfessionID = 1,
+                    CompanyID = 1,
                     Ability = "Galactic Wand/Luma",
                     Image = "./images/rosalina.png"
                 },
@@ -80,32 +80,25 @@ namespace ApiMastery.Data
                     ID = 6,
                     Name = "Dry Bones",
                     Game = "Super Mario Bros. 3",
-                    ProfessionID = 3,
+                    CompanyID = 1,
                     Ability = "Reform",
                     Image = "./images/drybones.png"
                 });
 
-            modelBuilder.Entity<Character>().HasData(
+            modelBuilder.Entity<Company>().HasData(
 
-                new Profession()
+                new Company()
                 {
                     ID = 1,
-                    Title = "Hero",
-                    CharacterID = 1,
+                    Title = "Nintendo",
+                    Location = "Japan"
                 },
 
-                new Profession()
+                new Company()
                 {
                     ID = 2,
-                    Title = "Villain",
-                    CharacterID = 4,
-                },
-
-                new Profession()
-                {
-                    ID = 3,
-                    Title = "Minion",
-                    CharacterID = 4,
+                    Title = "Game Freak",
+                    Location = "Japan"
                 });
         }
     }

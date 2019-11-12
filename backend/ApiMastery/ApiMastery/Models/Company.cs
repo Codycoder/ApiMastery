@@ -5,12 +5,15 @@ using System.Threading.Tasks;
 
 namespace ApiMastery.Models
 {
-    public class Profession
+    public class Company
     {
         public string Title { get; set; }
         public int ID { get; set; }
+        public string Location { get; set; }
 
-        public Profession()
+        public virtual ICollection<Character> Characters { get; set; }
+
+        public Company()
         {
 
         }

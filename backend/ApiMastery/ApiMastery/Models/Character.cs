@@ -14,6 +14,9 @@ namespace ApiMastery.Models
         public int ID { get; set; }
         public string Image { get; set; }
 
+        public virtual Company company { get; set; }
+        public int CompanyID { get; set; }
+
         public Character()
         {
 

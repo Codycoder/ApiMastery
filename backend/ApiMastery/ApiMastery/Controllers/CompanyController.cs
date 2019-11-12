@@ -6,9 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ApiMastery.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/company")]
     [ApiController]
-    public class ProfessionController : ControllerBase
+    public class CompanyController : ControllerBase
     {
         // GET api/values
         [HttpGet]
