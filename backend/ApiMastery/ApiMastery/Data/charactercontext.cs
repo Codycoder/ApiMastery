@@ -10,7 +10,7 @@ namespace ApiMastery.Data
     public class CharacterContext : DbContext
     {
         public DbSet<Character> Characters { get; set; }
-        public DbSet<Profession> Professions { get; set; }
+        public DbSet<Company> Professions { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -87,21 +87,21 @@ namespace ApiMastery.Data
 
             modelBuilder.Entity<Character>().HasData(
 
-                new Profession()
+                new Company()
                 {
                     ID = 1,
                     Title = "Hero",
                     CharacterID = 1,
                 },
 
-                new Profession()
+                new Company()
                 {
                     ID = 2,
                     Title = "Villain",
                     CharacterID = 4,
                 },
 
-                new Profession()
+                new Company()
                 {
                     ID = 3,
                     Title = "Minion",

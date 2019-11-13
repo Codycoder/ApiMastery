@@ -59,7 +59,7 @@ namespace ApiMastery.Tests
             var characterList = new List<Character>()
             {
                 deletedCharacter,
-                new Character(1, "Name", "image")
+                new Character("Name", "Game", "Profession", "Ability", 1, "Image")
         };
 
             characterRepo.GetById(characterId).Returns(deletedCharacter);
@@ -69,7 +69,7 @@ namespace ApiMastery.Tests
 
             var result = underTest.Delete(characterId);
 
-            Assert.DoesNotContain(deletedcharacter, result); /*Does not work in all cases*/
+            Assert.DoesNotContain(deletedCharacter, result); /*Does not work in all cases*/
             //Assert.All(result, item => Assert.Contains("Second item", item.Name));
         }
 
@@ -84,11 +84,11 @@ namespace ApiMastery.Tests
             var updatedCharacter = new Character("Name", "Game", "Profession", "Ability", 1, "Image");
 
             characterRepo.When(t => characterRepo.Update(updatedCharacter))
-                .Do(Callback.First(t => expectedCharacters.Remove(originalCharacter))
-                .Then(t => expectedCharacters.Add(updatedCharacters)));
+                .Do(Callback.First(t => expectedCharacter.Remove(originalCharacter))
+                .Then(t => expectedCharacter.Add(updatedCharacter)));
             characterRepo.GetAll().Returns(expectedCharacter);
 
-            var result = underTest.Put(updatedCharacters);
+            var result = underTest.Put(updatedCharacter);
 
             // Assert.Equal(expectedTodos, result.ToList());
             Assert.All(result, item => Assert.Contains("Updated item", item.Name));
