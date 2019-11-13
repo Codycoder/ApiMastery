@@ -5,16 +5,16 @@ body{
 #charIMG{
     border: .25rem solid rgb(148, 41, 2);
     border-radius: 10rem;
-    padding: .5rem;
+    padding: .25rem;
     width: 10.5rem;
     height: 12rem;
 }
 #compIMG{
     border: .5rem solid rgb(148, 41, 2);
     border-radius: 20rem;
-    padding: .5rem;
+    padding: .25rem;
     width: 10rem;
-    height: 12rem;
+    height: 8rem;
 }
 #characterButton{
     background-color: rgb(148, 41, 2);
@@ -28,8 +28,8 @@ body{
 }
 #app{
     display: grid;
-    padding-left: 2.5rem;
-    grid-template-columns: repeat(3, 15rem);
+    padding-left: 7rem;
+    grid-template-columns: repeat(5, 15rem);
     grid-gap: 1rem 1.5rem;
     grid-template-rows: repeat(2, 29rem);
     width: 42rem;
@@ -46,14 +46,15 @@ body{
     grid-template-rows: repeat(1, 25rem);
     width: 42rem; */
 }
-.header{
+header{
     position: relative;
     text-align: center;
     left: 0;
     bottom: 0;
     width: 100%;
+    align-content: center;
 }
-.footer{
+footer{
     position: relative;
     text-align: center;
     left: 0;

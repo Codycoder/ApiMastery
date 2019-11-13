@@ -34,8 +34,6 @@ namespace ApiMastery.Migrations
 
                     b.Property<string>("Name");
 
-                    b.Property<string>("Profession");
-
                     b.HasKey("ID");
 
                     b.HasIndex("CompanyID");
@@ -61,6 +59,8 @@ namespace ApiMastery.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Image");
+
                     b.Property<string>("Location");
 
                     b.Property<string>("Title");
@@ -70,8 +70,8 @@ namespace ApiMastery.Migrations
                     b.ToTable("Companies");
 
                     b.HasData(
-                        new { ID = 1, Location = "Japan", Title = "Nintendo" },
-                        new { ID = 2, Location = "Japan", Title = "Sega" }
+                        new { ID = 1, Image = "./images/nintendo.png", Location = "Japan", Title = "Nintendo" },
+                        new { ID = 2, Image = "./images/sega.jpg", Location = "Japan", Title = "Sega" }
                     );
                 });
 

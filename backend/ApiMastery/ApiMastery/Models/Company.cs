@@ -10,6 +10,7 @@ namespace ApiMastery.Models
         public string Title { get; set; }
         public int ID { get; set; }
         public string Location { get; set; }
+        public string Image { get; set; }
 
         public virtual ICollection<Character> Characters { get; set; }
 

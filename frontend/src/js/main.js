@@ -25,14 +25,14 @@ function footer(){
 }
 
 function displayCharacter(){
-    const characterButton = document.querySelector("");
-    characterButton.addEventListener("click", function(){
-        apiActions.getRequest("https://localhost:44363/api/character", characters => {
-            document.querySelector("#app").innerHTML = Character(characters);
-            console.log(characters);
+    const charButton = document.querySelector("#characterButton");
+    charButton.addEventListener("click", function(){
+        apiActions.getRequest("https://localhost:44363/api/character", character => {
+            document.querySelector("#app").innerHTML = Character(character);
+            console.log(character);
         });
     });
-
+}
     // const app = document.querySelector("#app");
     // app.addEventListener("click", function(){
     // if(event.target.classList.contains("add-character_submit")){
@@ -58,17 +58,17 @@ function displayCharacter(){
     //     }
     // }
     // });
-}
 
-function displayProfession(){
-    const professionButton = document.querySelector("");
-    professionButton.addEventListener("click", function(){
-        apiActions.getRequest("https://localhost:44363/api/profession", professions => {
-            document.querySelector("#app").innerHTML = Profession(professions);
-            console.log(professions);
+
+function displayCompany(){
+    const compButton = document.querySelector("#companyButton");
+    compButton.addEventListener("click", function(){
+        apiActions.getRequest("https://localhost:44363/api/company", companies => {
+            document.querySelector("#app").innerHTML = Company(companies);
+            console.log(companies);
         });
     });
-
+}
 //     const app = document.querySelector("#app");
 //     app.addEventListener("click", function(){
 //     if(event.target.classList.contains("add-profession_submit")){
@@ -86,4 +86,4 @@ function displayProfession(){
 //         }
 //     }
 // });
-}
+

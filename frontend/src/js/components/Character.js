@@ -1,22 +1,20 @@
 export default function Character(characters) {
     return `
-    <ul>
     ${characters
         .map(character => {
             return `
-                <li id="character">
-                    <img src=${character.image}></img>
-                    <h3>${character.name}</h3>
-                    <h4>${character.game}</h4>
-                    <h4>${character.ability}</h4>
+                <section>
+                    <img src=${character.image} id="charIMG"></img>
+                    <h1>${character.name}</h1>
+                    <h3>First Appearance: ${character.game}</h3>
+                    <h3>Ability: ${character.ability}</h3>
                     <input class="character_id" type="hidden" value="${character.id}">
                     <button class="edit-character_submit">Edit</button>
                     <button class="delete-character_submit">Delete</button>
-                    </li>    
+                </section>
             `;
         })
     .join("")}
-    </ul>
 
     <section class='add-character'>
         <input class='add-character_name' type='text' placeholder='Add A New Character'>

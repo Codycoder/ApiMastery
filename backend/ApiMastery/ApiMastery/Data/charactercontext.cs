@@ -121,14 +121,16 @@ namespace ApiMastery.Data
                 {
                     ID = 1,
                     Title = "Nintendo",
-                    Location = "Japan"
+                    Location = "Japan",
+                    Image = "./images/nintendo.png"
                 },
 
                 new Company()
                 {
                     ID = 2,
                     Title = "Sega",
-                    Location = "Japan"
+                    Location = "Japan",
+                    Image = "./images/sega.jpg"
                 });
         }
     }
