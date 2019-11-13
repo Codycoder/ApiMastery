@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ApiMastery.Models;
+using ApiMastery.Repository;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ApiMastery.Controllers
@@ -10,18 +12,25 @@ namespace ApiMastery.Controllers
     [ApiController]
     public class CompanyController : ControllerBase
     {
-        // GET api/values
-        [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        private IRepository<Company> compRepo;
+
+        public CompanyController(IRepository<Company> compRepo)
         {
-            return new string[] { "value1", "value2" };
+            this.compRepo = compRepo;
         }
 
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        // GET api/values
+        [HttpGet]
+        public IEnumerable<Company> Get()
         {
-            return "value";
+            return compRepo.GetAll();
+        }
+
+        // GET: api/Character/5
+        [HttpGet("{id}")]
+        public Company Get(int id)
+        {
+            return compRepo.GetById(id);
         }
 
         // POST api/values

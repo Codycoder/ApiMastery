@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ApiMastery.Models;
+using ApiMastery.Repository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,18 +13,25 @@ namespace ApiMastery.Controllers
     [ApiController]
     public class CharacterController : ControllerBase
     {
+        private IRepository<Character> charRepo;
+
+        public CharacterController(IRepository<Character> charRepo)
+        {
+            this.charRepo = charRepo;
+        }
+
         // GET: api/Character
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<Character> Get()
         {
-            return new string[] { "value1", "value2" };
+            return charRepo.GetAll();
         }
 
         // GET: api/Character/5
-        [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
+        [HttpGet("{id}")]
+        public Character Get(int id)
         {
-            return "value";
+            return charRepo.GetById(id);
         }
 
         // POST: api/Character

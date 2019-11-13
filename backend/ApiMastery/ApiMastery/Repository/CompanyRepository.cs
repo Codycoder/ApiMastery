@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace ApiMastery.Repository
 {
-    public class ProfessionRepository : Repository<Company>, IRepository<Company>
+    public class CompanyRepository : Repository<Company>, IRepository<Company>
     {
-        public ProfessionRepository(CharacterContext context) : base(context)
+        public CompanyRepository(CharacterContext context) : base(context)
         {
 
         }

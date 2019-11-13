@@ -9,7 +9,6 @@ namespace ApiMastery.Models
     {
         public string Name { get; set; }
         public string Game { get; set; }
-        public string Profession { get; set; }
         public string Ability { get; set; }
         public int ID { get; set; }
         public string Image { get; set; }
