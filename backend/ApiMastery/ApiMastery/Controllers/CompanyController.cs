@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ApiMastery.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/company")]
     [ApiController]
     public class CompanyController : ControllerBase
     {
@@ -21,7 +21,7 @@ namespace ApiMastery.Controllers
         // GET: api/Company
         [HttpGet]
         public IEnumerable<Company> Get()
-     
+        { 
             return companyRepo.GetAll();
             //return new List<Company>();
         }

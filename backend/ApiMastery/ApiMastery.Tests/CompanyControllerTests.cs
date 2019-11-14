@@ -4,6 +4,7 @@ using ApiMastery.Repository;
 using NSubstitute;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Xunit;
 
@@ -27,7 +28,7 @@ namespace ApiMastery.Tests
             var expectedCompanys = new List<Company>()
                 {
                     new Company("Title", 1, "Location", "Image"),
-                    new Company("Title", 1, "Location", "Image")
+                    new Company("Title", 2, "Location", "Image")
             };
             companyRepo.GetAll().Returns(expectedCompanys);
 
@@ -92,7 +93,7 @@ namespace ApiMastery.Tests
             var result = underTest.Put(updatedCompany);
 
             // Assert.Equal(expectedTodos, result.ToList());
-            Assert.All(result, item => Assert.Contains("Updated item", item.Name));
+            Assert.All(result, item => Assert.Contains("Updated item", item.Title));
         }
     }
 }

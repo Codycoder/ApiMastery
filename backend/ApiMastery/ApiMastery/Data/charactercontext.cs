@@ -101,7 +101,7 @@ namespace ApiMastery.Data
                     Name = "Sonic the Hedgehog",
                     Game = "Sonic the Hedgehog",
                     CompanyID = 2,
-                    Ability = "Very Fast",
+                    Ability = "Super Speed",
                     Image = "./images/sonic.png"
                 },
 
@@ -111,7 +111,7 @@ namespace ApiMastery.Data
                     Name = "Shadow the Hedgehog",
                     Game = "Sonic Adventure 2",
                     CompanyID = 2,
-                    Ability = "Choas Control",
+                    Ability = "Chaos Control",
                     Image = "./images/shadow.png"
                 });
 
@@ -130,9 +130,7 @@ namespace ApiMastery.Data
                     ID = 2,
                     Title = "Sega",
                     Location = "Japan",
-                    Image = "./images/sega.jpg"
-                    Title = "Villain",
-                    CharacterID = 4,
+                    Image = "./images/sega.png",
                 });
         }
     }

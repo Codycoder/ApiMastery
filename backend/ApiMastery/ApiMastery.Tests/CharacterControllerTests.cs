@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Xunit;
 
+
 namespace ApiMastery.Tests
 {
     public class CharacterControllerTests
@@ -26,8 +27,8 @@ namespace ApiMastery.Tests
         {
             var expectedCharacters = new List<Character>()
             {
-                new Character("Name", "Game", "Profession", "Ability", 1, "Image"),
-                new Character("Name", "Game", "Profession", "Ability", 1, "Image")
+                new Character("Name", "Game", "Ability", 1, "Image"),
+                new Character("Name", "Game", "Ability", 2, "Image")
         };
             characterRepo.GetAll().Returns(expectedCharacters);
 
@@ -39,7 +40,7 @@ namespace ApiMastery.Tests
         [Fact]
         public void Post_Creates_New_Character()
         {
-            var newCharacter = new Character("Name", "Game", "Profession", "Ability", 1, "Image");
+            var newCharacter = new Character("Name", "Game", "Ability", 1, "Image");
             var characterList = new List<Character>();
 
             characterRepo.When(t => t.Create(newCharacter))
@@ -56,11 +57,11 @@ namespace ApiMastery.Tests
         public void Delete_Removes_Character()
         {
             var characterId = 1;
-            var deletedCharacter = new Character("Name", "Game", "Profession", "Ability", 1, "Image");
+            var deletedCharacter = new Character("Name", "Game", "Ability", 1, "Image");
             var characterList = new List<Character>()
             {
                 deletedCharacter,
-                new Character("Name", "Game", "Profession", "Ability", 1, "Image")
+                new Character("Name", "Game", "Ability", 1, "Image")
         };
 
             characterRepo.GetById(characterId).Returns(deletedCharacter);
@@ -77,12 +78,12 @@ namespace ApiMastery.Tests
         [Fact]
         public void Put_Updates_Character()
         {
-            var originalCharacter = new Character("Name", "Game", "Profession", "Ability", 1, "Image"); ;
+            var originalCharacter = new Character("Name", "Game", "Ability", 1, "Image"); ;
             var expectedCharacter = new List<Character>()
             {
                 originalCharacter
             };
-            var updatedCharacter = new Character("Name", "Game", "Profession", "Ability", 1, "Image");
+            var updatedCharacter = new Character("Name", "Game", "Ability", 1, "Image");
 
             characterRepo.When(t => characterRepo.Update(updatedCharacter))
                 .Do(Callback.First(t => expectedCharacter.Remove(originalCharacter))
