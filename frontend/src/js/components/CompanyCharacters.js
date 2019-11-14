@@ -1,20 +1,21 @@
 export default function CompanyCharacter(company){
     return `
+    <section>
     <h3>Company ${company.title}</h3>
-    <img src= ${company.image}></img>
-
-    <ul>
+    <img class="compIMG" src= ${company.image}></img>
+    </section>
     ${company.characters
-    .map(character=>{
+    .map(character => {
         return `
-        <li>
-        <img src= ${character.image}></img>
+        <section class="character">
+        <img src=${character.image} id="charIMG"></img>
         <h3>${character.name}</h3>
-        <p><input type="hidden" value="${character.id}></p>
-        </li> 
-        `
+        <h5>First Appearance: ${character.game}</h5>
+        <h5>Ability: ${character.ability}</h5>
+        <input class="character_id" type="hidden" value="${character.id}">
+        </section>
+`;
     })
-.join("")}
-</ul>
+    .join("")}
     `
-}
+};

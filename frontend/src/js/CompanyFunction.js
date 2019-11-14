@@ -24,6 +24,7 @@ function displayCompany(){
                 ".company_id").value;
             apiActions.getRequest(`https://localhost:44363/api/company/${companyid}`, company=>{
                 document.querySelector("#app").innerHTML = CompanyCharacters(company);
+                console.log(company);
             })
         }
     })
