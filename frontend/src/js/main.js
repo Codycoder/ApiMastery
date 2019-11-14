@@ -1,16 +1,18 @@
 import Character from "./components/Character"
 import Company from "./components/Company"
+import Home from "./components/Home"
 import Header from "./components/Header"
 import Footer from "./components/Footer"
 import apiActions from "./api/apiActions"
 
 export default () => {
-    pageBuild()
+    pageBuild();
 }
 
 function pageBuild(){
     header();
     footer();
+    home();
     displayCharacter();
     displayCompany();
 }
@@ -22,6 +24,15 @@ function header(){
 function footer(){
     const footer = document.getElementById("footer")
     footer.innerHTML = Footer()    
+}
+
+function home(){
+    const landing = document.querySelector("#app");
+    landing.innerHTML = Home()
+    const homeButton = document.querySelector("#homeButton");
+    homeButton.addEventListener("click", function(){
+    document.querySelector("#app").innerHTML = Home();
+    })
 }
 
 function displayCharacter(){
