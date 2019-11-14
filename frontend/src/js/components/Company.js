@@ -7,7 +7,7 @@ export default function Company(companies) {
                     <img src=${company.image} id="compIMG"></img>
                     <h3>${company.title}</h3>
                     <h5>Location: ${company.location}</h5>
-                    <input class="company" type="hidden" value="${company.id}">
+                    <input class="company_id" type="hidden" value="${company.id}">
                     <button class="edit-company">Edit</button>
                     <button class="delete-company">Delete</button>
                 </section>

@@ -19,6 +19,10 @@ export default function Character(characters) {
     <section class="charAdd">
         <input class='add-character_name' id="border" type='text' placeholder="Add A New Character">
         <input class='add-character_game' id="border" type='text' placeholder="Add Character's Game">
+        <select class='addcharactercompany' id="border" name='company' placeholder="Add A New Company">
+        <option value="1">Nintendo</option>
+        <option value="2">Sega</option>
+        </select>
         <input class='add-character_ability' id="border" type='text' placeholder="Add Character's Ability">
         <button class='add-character'>Submit</button>
     </section>
