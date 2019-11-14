@@ -72,7 +72,26 @@ function displayCharacter(){
         })
     }
     });
+
+app.addEventListener("click",function(){
+    if(event.target.classList.contains("delete-character")){
+        const charid = event.target.parentElement.querySelector(
+            ".character_id").value;
+            console.log("delete" + charid)
+            apiActions.deleteRequest(`https://localhost:44363/api/character/${charid}`,
+            characters => {
+                app.innerHTML = Character(characters);
+
+            })
+        
+    }
+});
+
+
+
 }  
+
+
 
 function displayCompany(){
     const compButton = document.querySelector("#companyButton");
@@ -100,5 +119,19 @@ function displayCompany(){
         })
     }
 });
+app.addEventListener("click",function(){
+    if(event.target.classList.contains("delete-company")){
+        const compid = event.target.parentElement.querySelector(
+            ".company_id").value;
+            console.log("delete" + compid)
+            apiActions.deleteRequest(`https://localhost:44363/api/company/${compid}`,
+            companies => {
+                app.innerHTML = Company(companies);
+
+            })
+        
+    }
+});
+
 }
 
