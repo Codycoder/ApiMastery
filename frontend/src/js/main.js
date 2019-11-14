@@ -4,6 +4,8 @@ import Home from "./components/Home"
 import Header from "./components/Header"
 import Footer from "./components/Footer"
 import apiActions from "./api/apiActions"
+import EditCharacter from "./components/EditCharacter"
+import EditCompany from "./components/EditCompany"
 
 export default () => {
     pageBuild();
@@ -87,7 +89,54 @@ app.addEventListener("click",function(){
     }
 });
 
+app.addEventListener("click",function(){
+    if(event.target.classList.contains("edit-character")){
+        const charid = event.target.parentElement.querySelector(
+            ".character_id").value;
+            console.log("edit" + charid)
+            apiActions.getRequest(`https://localhost:44363/api/character/${charid}`,
+            characterEdit => {
+                app.innerHTML = EditCharacter(characterEdit);
 
+            })
+        
+    }
+});
+
+app.addEventListener("click", function(){
+    if(event.target.classList.contains("update-character_submit")){
+        const charid= event.target.parentElement.querySelector(
+            ".update-character_id").value;
+        const updateCharacter = event.target.parentElement.querySelector(
+            ".update-character_name").value;
+        const updateCharacterGame = event.target.parentElement.querySelector(
+            ".update-character_game").value;
+            const updatecharactercompany = event.target.parentElement.querySelector(
+                ".updatecharactercompany").value;
+            
+        const updateCharacterAbility = event.target.parentElement.querySelector(
+            ".update-character_ability").value;
+        const updateCharacterImage = ""
+    
+        console.log(updateCharacter);
+        const characterdata = 
+        {
+            id: charid,
+            name: updateCharacter,
+            game: updateCharacterGame,
+            companyid: updatecharactercompany,
+            ability: updateCharacterAbility,
+            image: updateCharacterImage
+        }
+        apiActions.putRequest(`https://localhost:44363/api/character/${charid}`,
+        characterdata,
+        characters => {
+            console.log(characters);
+            document.querySelector("#app").innerHTML = Character(characters);
+
+        })
+    }
+});
 
 }  
 
