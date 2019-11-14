@@ -15,6 +15,16 @@ namespace ApiMastery.Models
 
         public virtual Company company { get; set; }
         public int CompanyID { get; set; }
+      
+        public Character(string name, string game, string profession, string ability, int id, string image)
+        {
+            Name = name;
+            Game = game;
+            Profession = profession;
+            Ability = ability;
+            ID = id;
+            Image = image;
+        }
 
         public Character()
         {

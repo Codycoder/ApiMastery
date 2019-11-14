@@ -131,6 +131,8 @@ namespace ApiMastery.Data
                     Title = "Sega",
                     Location = "Japan",
                     Image = "./images/sega.jpg"
+                    Title = "Villain",
+                    CharacterID = 4,
                 });
         }
     }

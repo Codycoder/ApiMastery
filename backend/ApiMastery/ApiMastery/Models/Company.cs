@@ -14,7 +14,15 @@ namespace ApiMastery.Models
 
         public virtual ICollection<Character> Characters { get; set; }
 
-        public Company()
+        public Company(string title, int id, string location, string image)
+        {
+            Title = title;
+            ID = id;
+            Location = location;
+            Image = image;
+        }
+
+    public Company()
         {
 
         }

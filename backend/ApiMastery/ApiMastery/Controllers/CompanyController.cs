@@ -8,47 +8,54 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ApiMastery.Controllers
 {
-    [Route("api/company")]
+    [Route("api/[controller]")]
     [ApiController]
     public class CompanyController : ControllerBase
     {
-        private IRepository<Company> compRepo;
+        private IRepository<Company> companyRepo;
 
-        public CompanyController(IRepository<Company> compRepo)
+        public CompanyController(IRepository<Company> companyRepo)
         {
-            this.compRepo = compRepo;
+            this.companyRepo = companyRepo;
         }
-
-        // GET api/values
+        // GET: api/Company
         [HttpGet]
         public IEnumerable<Company> Get()
-        {
-            return compRepo.GetAll();
+     
+            return companyRepo.GetAll();
+            //return new List<Company>();
         }
 
-        // GET: api/Character/5
-        [HttpGet("{id}")]
+        // GET: api/Company/5
+        [HttpGet("{id}", Name = "Get")]
         public Company Get(int id)
         {
-            return compRepo.GetById(id);
+            return companyRepo.GetById(id);
         }
 
-        // POST api/values
+        // POST: api/Company
         [HttpPost]
-        public void Post([FromBody] string value)
+        public IEnumerable<Company> Post([FromBody] Company company)
         {
+            companyRepo.Create(company);
+            return companyRepo.GetAll();
         }
 
-        // PUT api/values/5
+        // PUT: api/Company/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+
+        public IEnumerable<Company> Put([FromBody] Company company)
         {
+            companyRepo.Update(company);
+            return companyRepo.GetAll();
         }
 
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        // DELETE: api/ApiWithActions/5
+        public IEnumerable<Company> Delete(int id)
         {
+            var company = companyRepo.GetById(id);
+            companyRepo.Delete(company);
+            return companyRepo.GetAll();
         }
     }
 }

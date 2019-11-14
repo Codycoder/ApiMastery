@@ -13,43 +13,53 @@ namespace ApiMastery.Controllers
     [ApiController]
     public class CharacterController : ControllerBase
     {
-        private IRepository<Character> charRepo;
 
-        public CharacterController(IRepository<Character> charRepo)
+        private IRepository<Character> characterRepo;
+
+        public CharacterController(IRepository<Character> characterRepo)
         {
-            this.charRepo = charRepo;
+            this.characterRepo = characterRepo;
         }
 
         // GET: api/Character
         [HttpGet]
         public IEnumerable<Character> Get()
         {
-            return charRepo.GetAll();
+            return characterRepo.GetAll();
+            //return new List<Artist>();
         }
 
         // GET: api/Character/5
-        [HttpGet("{id}")]
+        [HttpGet("{id}", Name = "Get")]
         public Character Get(int id)
         {
-            return charRepo.GetById(id);
+            return characterRepo.GetById(id);
+
         }
 
         // POST: api/Character
         [HttpPost]
-        public void Post([FromBody] string value)
+        public IEnumerable<Character> Post([FromBody] Character character)
         {
+            characterRepo.Create(character);
+            return characterRepo.GetAll();
         }
 
         // PUT: api/Character/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+
+        public IEnumerable<Character> Put([FromBody] Character character)
         {
+            characterRepo.Update(character);
+            return characterRepo.GetAll();
         }
 
         // DELETE: api/ApiWithActions/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IEnumerable<Character> Delete(int id)
         {
+            var artist = characterRepo.GetById(id);
+            characterRepo.Delete(artist);
+            return characterRepo.GetAll();
         }
     }
 }

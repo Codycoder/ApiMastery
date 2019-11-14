@@ -11,87 +11,89 @@ namespace ApiMastery.Tests
 {
     public class CharacterControllerTests
     {
-        //private CharacterController underTest;
-        //IRepository<Character> characterRepo;
 
-        //public CharacterControllerTests()
-        //{
-        //    characterRepo = Substitute.For<IRepository<Character>>();
-        //    underTest = new CharacterController(characterRepo);
-        //}
+        private CharacterController underTest;
+        IRepository<Character> characterRepo;
 
-        //[Fact]
-        //public void Get_Returns_List_of_Characters()
-        //{
-        //    var expectedCharacters = new List<Character>()
-        //    {
-        //        new Character("Name", "Game", "Profession", "Ability", 1, "Image"),
-        //        new Character("Name", "Game", "Profession", "Ability", 1, "Image")
-        //};
-        //    characterRepo.GetAll().Returns(expectedCharacters);
+        public CharacterControllerTests()
+        {
+            characterRepo = Substitute.For<IRepository<Character>>();
+            underTest = new CharacterController(characterRepo);
+        }
 
-        //    var result = underTest.Get();
+        [Fact]
+        public void Get_Returns_List_of_Characters()
+        {
+            var expectedCharacters = new List<Character>()
+            {
+                new Character("Name", "Game", "Profession", "Ability", 1, "Image"),
+                new Character("Name", "Game", "Profession", "Ability", 1, "Image")
+        };
+            characterRepo.GetAll().Returns(expectedCharacters);
 
-        //    Assert.Equal(expectedCharacters, result.ToList());
-        //}
+            var result = underTest.Get();
 
-        //[Fact]
-        //public void Post_Creates_New_Character()
-        //{
-        //    var newCharacter = new Character("Name", "Game", "Profession", "Ability", 1, "Image");
-        //    var characterList = new List<Character>();
+            Assert.Equal(expectedCharacters, result.ToList());
+        }
 
-        //    characterRepo.When(t => t.Create(newCharacter))
-        //        .Do(t => characterList.Add(newCharacter));
+        [Fact]
+        public void Post_Creates_New_Character()
+        {
+            var newCharacter = new Character("Name", "Game", "Profession", "Ability", 1, "Image");
+            var characterList = new List<Character>();
 
-        //    characterRepo.GetAll().Returns(characterList);
+            characterRepo.When(t => t.Create(newCharacter))
+                .Do(t => characterList.Add(newCharacter));
 
-        //    var result = underTest.Post(newCharacter);
+            characterRepo.GetAll().Returns(characterList);
 
-        //    Assert.Contains(newCharacter, result);
-        //}
+            var result = underTest.Post(newCharacter);
 
-        //[Fact]
-        //public void Delete_Removes_Character()
-        //{
-        //    var characterId = 1;
-        //    var deletedCharacter = new Character("Name", "Game", "Profession", "Ability", 1, "Image");
-        //    var characterList = new List<Character>()
-        //    {
-        //        deletedCharacter,
-        //        new Character(1, "Name", "image")
-        //};
+            Assert.Contains(newCharacter, result);
+        }
 
-        //    characterRepo.GetById(characterId).Returns(deletedCharacter);
-        //    characterRepo.When(d => d.Delete(deletedCharacter))
-        //        .Do(d => characterList.Remove(deletedCharacter));
-        //    characterRepo.GetAll().Returns(characterList);
+        [Fact]
+        public void Delete_Removes_Character()
+        {
+            var characterId = 1;
+            var deletedCharacter = new Character("Name", "Game", "Profession", "Ability", 1, "Image");
+            var characterList = new List<Character>()
+            {
+                deletedCharacter,
+                new Character("Name", "Game", "Profession", "Ability", 1, "Image")
+        };
 
-        //    var result = underTest.Delete(characterId);
+            characterRepo.GetById(characterId).Returns(deletedCharacter);
+            characterRepo.When(d => d.Delete(deletedCharacter))
+                .Do(d => characterList.Remove(deletedCharacter));
+            characterRepo.GetAll().Returns(characterList);
 
-        //    Assert.DoesNotContain(deletedcharacter, result); /*Does not work in all cases*/
-        //    //Assert.All(result, item => Assert.Contains("Second item", item.Name));
-        //}
+            var result = underTest.Delete(characterId);
 
-        //[Fact]
-        //public void Put_Updates_Character()
-        //{
-        //    var originalCharacter = new Character("Name", "Game", "Profession", "Ability", 1, "Image"); ;
-        //    var expectedCharacter = new List<Character>()
-        //    {
-        //        originalCharacter
-        //    };
-        //    var updatedCharacter = new Character("Name", "Game", "Profession", "Ability", 1, "Image");
+            Assert.DoesNotContain(deletedCharacter, result); /*Does not work in all cases*/
+            //Assert.All(result, item => Assert.Contains("Second item", item.Name));
+        }
 
-        //    characterRepo.When(t => characterRepo.Update(updatedCharacter))
-        //        .Do(Callback.First(t => expectedCharacters.Remove(originalCharacter))
-        //        .Then(t => expectedCharacters.Add(updatedCharacters)));
-        //    characterRepo.GetAll().Returns(expectedCharacter);
+        [Fact]
+        public void Put_Updates_Character()
+        {
+            var originalCharacter = new Character("Name", "Game", "Profession", "Ability", 1, "Image"); ;
+            var expectedCharacter = new List<Character>()
+            {
+                originalCharacter
+            };
+            var updatedCharacter = new Character("Name", "Game", "Profession", "Ability", 1, "Image");
 
-        //    var result = underTest.Put(updatedCharacters);
+            characterRepo.When(t => characterRepo.Update(updatedCharacter))
+                .Do(Callback.First(t => expectedCharacter.Remove(originalCharacter))
+                .Then(t => expectedCharacter.Add(updatedCharacter)));
+            characterRepo.GetAll().Returns(expectedCharacter);
 
-        //    // Assert.Equal(expectedTodos, result.ToList());
-        //    Assert.All(result, item => Assert.Contains("Updated item", item.Name));
-        //}
+            var result = underTest.Put(updatedCharacter);
+
+            // Assert.Equal(expectedTodos, result.ToList());
+            Assert.All(result, item => Assert.Contains("Updated item", item.Name));
+        }
+
     }
 }
