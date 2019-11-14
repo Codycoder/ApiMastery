@@ -4,7 +4,7 @@ export default function Company(companies) {
         .map(company => {
             return `
                 <section class="company">
-                    <img src=${company.image} id="compIMG"></img>
+                    <img src=${company.image} class="compIMG"></img>
                     <h3>${company.title}</h3>
                     <h5>Location: ${company.location}</h5>
                     <input class="company_id" type="hidden" value="${company.id}">
