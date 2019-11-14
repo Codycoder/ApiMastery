@@ -17,9 +17,9 @@ export default function Character(characters) {
     .join("")}
 
     <section class="charAdd">
-        <input class='add-character_name' type='text' placeholder="Add A New Character">
-        <input class='add-character_game' type='text' placeholder="Add Character's Game">
-        <input class='add-character_ability' type='text' placeholder="Add Character's Ability">
+        <input class='add-character_name' id="border" type='text' placeholder="Add A New Character">
+        <input class='add-character_game' id="border" type='text' placeholder="Add Character's Game">
+        <input class='add-character_ability' id="border" type='text' placeholder="Add Character's Ability">
         <button class='add-character'>Submit</button>
     </section>
     `;

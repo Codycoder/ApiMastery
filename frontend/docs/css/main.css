@@ -54,13 +54,18 @@ body{
     background-color: rgb(148, 41, 2);
     color: rgb(247, 234, 164);
     border-radius: 3rem;
-    /* margin-bottom: .5rem; */
 }
 
 .add-character, .edit-character, .delete-character{
     font-family: 'Press Start 2P', cursive;
+    background-color: rgb(148, 41, 2);
+    color: rgb(247, 234, 164);
+    border-radius: 3rem;
 }
 
+#border{
+    border-radius: 5rem;
+}
 
 #app{
     display: grid;
@@ -73,16 +78,11 @@ body{
 }
 
 .company{
-    display: flexbox;
-    flex-direction: row;
-    align-items: center;
-    height: 20rem;
-    justify-content: center;
-    /* padding-left: 2.5rem;
+    padding-left: 2.5rem;
     grid-template-columns: repeat(2, 18rem);
     grid-gap: 1rem 1.5rem;
     grid-template-rows: repeat(1, 25rem);
-    width: 42rem; */
+    width: 42rem;
 }
 
 .header{

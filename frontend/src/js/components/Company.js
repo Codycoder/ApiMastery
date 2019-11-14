@@ -16,8 +16,8 @@ export default function Company(companies) {
     .join("")}
 
     <section class='compAdd'>
-        <input class='add-company_title' type='text' placeholder="Add A New Company">
-        <input class='add-company_location' type='text' placeholder="Add Company's Location">
+        <input class='add-company_title' id="border" type='text' placeholder="Add A New Company">
+        <input class='add-company_location' id="border" type='text' placeholder="Add Company's Location">
         <button class='add-company'>Submit</button>
     </section>
     `;
