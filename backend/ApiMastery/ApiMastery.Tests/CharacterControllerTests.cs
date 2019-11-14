@@ -11,6 +11,7 @@ namespace ApiMastery.Tests
 {
     public class CharacterControllerTests
     {
+
         private CharacterController underTest;
         IRepository<Character> characterRepo;
 
@@ -93,5 +94,6 @@ namespace ApiMastery.Tests
             // Assert.Equal(expectedTodos, result.ToList());
             Assert.All(result, item => Assert.Contains("Updated item", item.Name));
         }
+
     }
 }

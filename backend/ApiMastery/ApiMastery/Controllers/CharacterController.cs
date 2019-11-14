@@ -9,16 +9,18 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ApiMastery.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/character")]
     [ApiController]
     public class CharacterController : ControllerBase
     {
+
         private IRepository<Character> characterRepo;
 
         public CharacterController(IRepository<Character> characterRepo)
         {
             this.characterRepo = characterRepo;
         }
+
         // GET: api/Character
         [HttpGet]
         public IEnumerable<Character> Get()
@@ -32,6 +34,7 @@ namespace ApiMastery.Controllers
         public Character Get(int id)
         {
             return characterRepo.GetById(id);
+
         }
 
         // POST: api/Character
