@@ -43,33 +43,36 @@ function displayCharacter(){
             console.log(character);
         });
     });
-}
-    // const app = document.querySelector("#app");
-    // app.addEventListener("click", function(){
-    // if(event.target.classList.contains("add-character_submit")){
-    //     const addCharacter = event.target.parentElement.querySelector(
-    //         ".add-character_name").value;
-    //     const addCharacterGame = event.target.parentElement.querySelector(
-    //         ".add-character_game").value;
-    //     const addCharacterAbility = event.target.parentElement.querySelector(
-    //         ".add-character_ability").value;
-    //     const addCharacterImage = ""
+    const app = document.querySelector("#app");
+    app.addEventListener("click", function(){
+    if(event.target.classList.contains("add-character")){
+        const addCharacter = event.target.parentElement.querySelector(
+            ".add-character_name").value;
+        const addCharacterGame = event.target.parentElement.querySelector(
+            ".add-character_game").value;
+            const addcharactercompany = event.target.parentElement.querySelector(
+                ".addcharactercompany").value;
+            
+        const addCharacterAbility = event.target.parentElement.querySelector(
+            ".add-character_ability").value;
+        const addCharacterImage = ""
     
-    //     console.log(addCharacter);
-    //     apiActions.postRequest("https://localhost:44363/api/character", 
-    //     {
-    //         name: addCharacter,
-    //         game: addCharacterGame,
-    //         ability: addCharacterAbility,
-    //         image: addCharacterImage
-    //     },
-    //     characters => {
-    //         console.log(characters);
-    //         document.querySelector("#app").innerHTML = Character(characters);
-    //     }
-    // }
-    // });
-
+        console.log(addCharacter);
+        apiActions.postRequest("https://localhost:44363/api/character", 
+        {
+            name: addCharacter,
+            game: addCharacterGame,
+            companyid: addcharactercompany,
+            ability: addCharacterAbility,
+            image: addCharacterImage
+        },
+        characters => {
+            console.log(characters);
+            document.querySelector("#app").innerHTML = Character(characters);
+        })
+    }
+    });
+}  
 
 function displayCompany(){
     const compButton = document.querySelector("#companyButton");
@@ -79,22 +82,23 @@ function displayCompany(){
             console.log(companies);
         });
     });
-}
-//     const app = document.querySelector("#app");
-//     app.addEventListener("click", function(){
-//     if(event.target.classList.contains("add-profession_submit")){
-//         const addProfession = event.target.parentElement.querySelector(
-//             ".add-profession_title").value;
+
+    const app = document.querySelector("#app");
+    app.addEventListener("click", function(){
+    if(event.target.classList.contains("add-company")){
+        const addCompany = event.target.parentElement.querySelector(
+            ".add-company_title").value;
     
-//         console.log(addProfession);
-//         apiActions.postRequest("https://localhost:44363/api/profession", 
-//         {
-//             title: addProfession,
-//         },
-//         professions => {
-//             console.log(professions);
-//             document.querySelector("#app").innerHTML = Profession(profession);
-//         }
-//     }
-// });
+        console.log(addCompany);
+        apiActions.postRequest("https://localhost:44363/api/company", 
+        {
+            title: addCompany,
+        },
+        companies => {
+            console.log(companies);
+            document.querySelector("#app").innerHTML = Company(companies);
+        })
+    }
+});
+}
 
