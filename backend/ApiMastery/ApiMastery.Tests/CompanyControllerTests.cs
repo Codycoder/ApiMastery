@@ -25,16 +25,16 @@ namespace ApiMastery.Tests
         [Fact]
         public void Get_Returns_List_of_Companys()
         {
-            var expectedCompanys = new List<Company>()
+            var expectedCompanies = new List<Company>()
                 {
                     new Company("Title", 1, "Location", "Image"),
                     new Company("Title", 2, "Location", "Image")
             };
-            companyRepo.GetAll().Returns(expectedCompanys);
+            companyRepo.GetAll().Returns(expectedCompanies);
 
             var result = underTest.Get();
 
-            Assert.Equal(expectedCompanys, result.ToList());
+            Assert.Equal(expectedCompanies, result.ToList());
         }
 
         [Fact]

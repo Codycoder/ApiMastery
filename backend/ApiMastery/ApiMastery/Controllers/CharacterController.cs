@@ -55,10 +55,12 @@ namespace ApiMastery.Controllers
         }
 
         // DELETE: api/ApiWithActions/5
+        [HttpDelete("{id}")]
+
         public IEnumerable<Character> Delete(int id)
         {
-            var artist = characterRepo.GetById(id);
-            characterRepo.Delete(artist);
+            var deletecharacter = characterRepo.GetById(id);
+            characterRepo.Delete(deletecharacter);
             return characterRepo.GetAll();
         }
     }

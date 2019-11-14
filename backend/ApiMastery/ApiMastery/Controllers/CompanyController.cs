@@ -51,6 +51,7 @@ namespace ApiMastery.Controllers
         }
 
         // DELETE: api/ApiWithActions/5
+        [HttpDelete("{id}")]
         public IEnumerable<Company> Delete(int id)
         {
             var company = companyRepo.GetById(id);
