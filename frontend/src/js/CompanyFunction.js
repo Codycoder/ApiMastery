@@ -1,6 +1,7 @@
 import Company from "./components/Company"
 import EditCompany from "./components/EditCompany"
 import apiActions from "./api/apiActions"
+import CompanyCharacters from "./components/CompanyCharacters"
 
 
 export default () => {
@@ -17,6 +18,15 @@ function displayCompany(){
     });
 
     const app = document.querySelector("#app");
+    app.addEventListener("click", function(){
+        if(event.target.classList.contains("compIMG")){
+            const companyid = event.target.parentElement.querySelector(
+                ".company_id").value;
+            apiActions.getRequest(`https://localhost:44363/api/company/${companyid}`, company=>{
+                document.querySelector("#app").innerHTML = CompanyCharacters(company);
+            })
+        }
+    })
     app.addEventListener("click", function(){
     if(event.target.classList.contains("add-company")){
         const addCompany = event.target.parentElement.querySelector(
