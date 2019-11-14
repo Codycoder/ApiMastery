@@ -27,7 +27,7 @@ namespace ApiMastery.Controllers
         }
 
         // GET: api/Company/5
-        [HttpGet("{id}", Name = "Get")]
+        [HttpGet("{id}")]
         public Company Get(int id)
         {
             return companyRepo.GetById(id);

@@ -30,7 +30,7 @@ namespace ApiMastery.Controllers
         }
 
         // GET: api/Character/5
-        [HttpGet("{id}", Name = "Get")]
+        [HttpGet("{id}")]
         public Character Get(int id)
         {
             return characterRepo.GetById(id);
