@@ -16,9 +16,9 @@ namespace ApiMastery.Repository
             this.db = context;
         }
 
-    public override Company GetById(int id)
-    {
-        return db.Set<Company>().Where(i => i.ID == id).Include("Characters").FirstOrDefault();
-    }
+        public override Company GetById(int id)
+        {
+            return db.Set<Company>().Where(i => i.ID == id).Include("Characters").FirstOrDefault();
+        }
     }
 }

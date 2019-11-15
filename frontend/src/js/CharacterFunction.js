@@ -1,6 +1,7 @@
 import Character from "./components/Character"
 import EditCharacter from "./components/EditCharacter"
 import apiActions from "./api/apiActions"
+import CharacterCompany from "./components/CharacterCompany"
 
 
 export default () =>{
@@ -15,7 +16,20 @@ function displayCharacter(){
             console.log(character);
         });
     });
+
     const app = document.querySelector("#app");
+    app.addEventListener("click", function(){
+        if(event.target.classList.contains("charIMG")){
+            const characterid = event.target.parentElement.querySelector(
+                ".character_id").value;
+                apiActions.getRequest(`https://localhost:44363/api/character/${characterid}`, character=>{
+                    document.querySelector("#app").innerHTML = CharacterCompany(character);
+                    console.log(character);
+            })
+        }
+    })
+
+    // const app = document.querySelector("#app");
     app.addEventListener("click", function(){
     if(event.target.classList.contains("add-character")){
         const addCharacter = event.target.parentElement.querySelector(

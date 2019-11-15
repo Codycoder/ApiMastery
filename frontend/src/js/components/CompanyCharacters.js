@@ -1,6 +1,6 @@
 export default function CompanyCharacter(company){
     return `
-    <section>
+    <section clas="company">
     <h3>Company ${company.title}</h3>
     <img class="compIMG" src= ${company.image}></img>
     </section>
@@ -8,7 +8,7 @@ export default function CompanyCharacter(company){
     .map(character => {
         return `
         <section class="character">
-        <img src=${character.image} id="charIMG"></img>
+        <img src=${character.image} class="charIMG"></img>
         <h3>${character.name}</h3>
         <h5>First Appearance: ${character.game}</h5>
         <h5>Ability: ${character.ability}</h5>

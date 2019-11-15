@@ -27,8 +27,8 @@ namespace ApiMastery.Tests
         {
             var expectedCompanies = new List<Company>()
                 {
-                    new Company("Title", 1, "Location", "Image"),
-                    new Company("Title", 2, "Location", "Image")
+                    new Company("Title", 1, "Location", "Image", "Color"),
+                    new Company("Title", 2, "Location", "Image", "Color")
             };
             companyRepo.GetAll().Returns(expectedCompanies);
 
@@ -40,7 +40,7 @@ namespace ApiMastery.Tests
         [Fact]
         public void Post_Creates_New_Company()
         {
-            var newCompany = new Company("Title", 1, "Location", "Image");
+            var newCompany = new Company("Title", 1, "Location", "Image", "Color");
             var companyList = new List<Company>();
 
             companyRepo.When(t => t.Create(newCompany))
@@ -57,11 +57,11 @@ namespace ApiMastery.Tests
         public void Delete_Removes_Company()
         {
             var companyId = 1;
-            var deletedCompany = new Company("Title", 1, "Location", "Image");
+            var deletedCompany = new Company("Title", 1, "Location", "Image", "Color");
             var companyList = new List<Company>()
                 {
                     deletedCompany,
-                    new Company("Title", 1, "Location", "Image")
+                    new Company("Title", 1, "Location", "Image", "Color")
             };
 
             companyRepo.GetById(companyId).Returns(deletedCompany);
@@ -78,12 +78,12 @@ namespace ApiMastery.Tests
         [Fact]
         public void Put_Updates_Company()
         {
-            var originalCompany = new Company("Title", 1, "Location", "Image"); ;
+            var originalCompany = new Company("Title", 1, "Location", "Image", "Color"); ;
             var expectedCompany = new List<Company>()
                 {
                     originalCompany
                 };
-            var updatedCompany = new Company("Title", 1, "Location", "Image");
+            var updatedCompany = new Company("Title", 1, "Location", "Image", "Color");
 
             companyRepo.When(t => companyRepo.Update(updatedCompany))
                 .Do(Callback.First(t => expectedCompany.Remove(originalCompany))
