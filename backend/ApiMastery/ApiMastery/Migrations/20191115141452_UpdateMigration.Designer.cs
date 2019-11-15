@@ -3,14 +3,16 @@ using ApiMastery.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ApiMastery.Migrations
 {
     [DbContext(typeof(CharacterContext))]
-    partial class CharacterContextModelSnapshot : ModelSnapshot
+    [Migration("20191115141452_UpdateMigration")]
+    partial class UpdateMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -25,8 +27,6 @@ namespace ApiMastery.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Ability");
-
-                    b.Property<string>("Color");
 
                     b.Property<int>("CompanyID");
 
@@ -43,15 +43,15 @@ namespace ApiMastery.Migrations
                     b.ToTable("Characters");
 
                     b.HasData(
-                        new { ID = 1, Ability = "Super Mario", Color = "rgb(180, 53, 6)", CompanyID = 1, Game = "Mario Bros.", Image = "./images/mario.png", Name = "Mario" },
-                        new { ID = 2, Ability = "Float", Color = "rgb(180, 53, 6)", CompanyID = 1, Game = "Super Mario Bros. 2", Image = "./images/peach.png", Name = "Princess Toadstool" },
-                        new { ID = 3, Ability = "Invulnerability", Color = "rgb(180, 53, 6)", CompanyID = 1, Game = "Super Mario Land 2", Image = "./images/wario.png", Name = "Wario" },
-                        new { ID = 4, Ability = "Throws bombs", Color = "rgb(180, 53, 6)", CompanyID = 1, Game = "Super Mario Bros 2", Image = "./images/mouser.png", Name = "Mouser" },
-                        new { ID = 5, Ability = "Flame Breath", Color = "rgb(180, 53, 6)", CompanyID = 1, Game = "Super Mario Bros.", Image = "./images/bowser.png", Name = "Bowser" },
-                        new { ID = 6, Ability = "Galactic Wand/Luma", Color = "rgb(180, 53, 6)", CompanyID = 1, Game = "Super Mario Galaxy", Image = "./images/rosalina.png", Name = "Rosalina" },
-                        new { ID = 7, Ability = "Reform", Color = "rgb(180, 53, 6)", CompanyID = 1, Game = "Super Mario Bros. 3", Image = "./images/drybones.png", Name = "Dry Bones" },
-                        new { ID = 8, Ability = "Super Speed", Color = "rgb(24, 58, 207)", CompanyID = 2, Game = "Sonic the Hedgehog", Image = "./images/sonic.png", Name = "Sonic the Hedgehog" },
-                        new { ID = 9, Ability = "Chaos Control", Color = "rgb(24, 58, 207)", CompanyID = 2, Game = "Sonic Adventure 2", Image = "./images/shadow.png", Name = "Shadow the Hedgehog" }
+                        new { ID = 1, Ability = "Super Mario", CompanyID = 1, Game = "Mario Bros.", Image = "./images/mario.png", Name = "Mario" },
+                        new { ID = 2, Ability = "Float", CompanyID = 1, Game = "Super Mario Bros. 2", Image = "./images/peach.png", Name = "Princess Toadstool" },
+                        new { ID = 3, Ability = "Invulnerability", CompanyID = 1, Game = "Super Mario Land 2", Image = "./images/wario.png", Name = "Wario" },
+                        new { ID = 4, Ability = "Throws bombs", CompanyID = 1, Game = "Super Mario Bros 2", Image = "./images/mouser.png", Name = "Mouser" },
+                        new { ID = 5, Ability = "Flame Breath", CompanyID = 1, Game = "Super Mario Bros.", Image = "./images/bowser.png", Name = "Bowser" },
+                        new { ID = 6, Ability = "Galactic Wand/Luma", CompanyID = 1, Game = "Super Mario Galaxy", Image = "./images/rosalina.png", Name = "Rosalina" },
+                        new { ID = 7, Ability = "Reform", CompanyID = 1, Game = "Super Mario Bros. 3", Image = "./images/drybones.png", Name = "Dry Bones" },
+                        new { ID = 8, Ability = "Super Speed", CompanyID = 2, Game = "Sonic the Hedgehog", Image = "./images/sonic.png", Name = "Sonic the Hedgehog" },
+                        new { ID = 9, Ability = "Chaos Control", CompanyID = 2, Game = "Sonic Adventure 2", Image = "./images/shadow.png", Name = "Shadow the Hedgehog" }
                     );
                 });
 
@@ -60,8 +60,6 @@ namespace ApiMastery.Migrations
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Color");
 
                     b.Property<string>("Image");
 
@@ -74,8 +72,8 @@ namespace ApiMastery.Migrations
                     b.ToTable("Companies");
 
                     b.HasData(
-                        new { ID = 1, Color = "rgb(180, 53, 6)", Image = "./images/nintendo.png", Location = "Japan", Title = "Nintendo" },
-                        new { ID = 2, Color = "rgb(24, 58, 207)", Image = "./images/sega.png", Location = "Japan", Title = "Sega" }
+                        new { ID = 1, Image = "./images/nintendo.png", Location = "Japan", Title = "Nintendo" },
+                        new { ID = 2, Image = "./images/sega.png", Location = "Japan", Title = "Sega" }
                     );
                 });
 

@@ -32,7 +32,8 @@ namespace ApiMastery.Data
                     Game = "Mario Bros.",
                     CompanyID = 1,
                     Ability = "Super Mario",
-                    Image = "./images/mario.png"
+                    Image = "./images/mario.png",
+                    Color = "rgb(180, 53, 6)"
                 },
 
                 new Character()
@@ -42,7 +43,8 @@ namespace ApiMastery.Data
                     Game = "Super Mario Bros. 2",
                     CompanyID = 1,
                     Ability = "Float",
-                    Image = "./images/peach.png"
+                    Image = "./images/peach.png",
+                    Color = "rgb(180, 53, 6)"
                 },
 
                 new Character()
@@ -52,7 +54,8 @@ namespace ApiMastery.Data
                     Game = "Super Mario Land 2",
                     CompanyID = 1,
                     Ability = "Invulnerability",
-                    Image = "./images/wario.png"
+                    Image = "./images/wario.png",
+                    Color = "rgb(180, 53, 6)"
                 },
 
                 new Character()
@@ -62,7 +65,8 @@ namespace ApiMastery.Data
                     Game = "Super Mario Bros 2",
                     CompanyID = 1,
                     Ability = "Throws bombs",
-                    Image = "./images/mouser.png"
+                    Image = "./images/mouser.png",
+                    Color = "rgb(180, 53, 6)"
                 },
 
                 new Character()
@@ -72,7 +76,8 @@ namespace ApiMastery.Data
                     Game = "Super Mario Bros.",
                     CompanyID = 1,
                     Ability = "Flame Breath",
-                    Image = "./images/bowser.png"
+                    Image = "./images/bowser.png",
+                    Color = "rgb(180, 53, 6)"
                 },
 
                 new Character()
@@ -82,7 +87,8 @@ namespace ApiMastery.Data
                     Game = "Super Mario Galaxy",
                     CompanyID = 1,
                     Ability = "Galactic Wand/Luma",
-                    Image = "./images/rosalina.png"
+                    Image = "./images/rosalina.png",
+                    Color = "rgb(180, 53, 6)"
                 },
 
                 new Character()
@@ -92,7 +98,8 @@ namespace ApiMastery.Data
                     Game = "Super Mario Bros. 3",
                     CompanyID = 1,
                     Ability = "Reform",
-                    Image = "./images/drybones.png"
+                    Image = "./images/drybones.png",
+                    Color = "rgb(180, 53, 6)"
                 },
 
                 new Character()
@@ -102,7 +109,8 @@ namespace ApiMastery.Data
                     Game = "Sonic the Hedgehog",
                     CompanyID = 2,
                     Ability = "Super Speed",
-                    Image = "./images/sonic.png"
+                    Image = "./images/sonic.png",
+                    Color = "rgb(24, 58, 207)"
                 },
 
                 new Character()
@@ -112,7 +120,8 @@ namespace ApiMastery.Data
                     Game = "Sonic Adventure 2",
                     CompanyID = 2,
                     Ability = "Chaos Control",
-                    Image = "./images/shadow.png"
+                    Image = "./images/shadow.png",
+                    Color = "rgb(24, 58, 207)"
                 });
 
             modelBuilder.Entity<Company>().HasData(
@@ -122,7 +131,8 @@ namespace ApiMastery.Data
                     ID = 1,
                     Title = "Nintendo",
                     Location = "Japan",
-                    Image = "./images/nintendo.png"
+                    Image = "./images/nintendo.png",
+                    Color = "rgb(180, 53, 6)"
                 },
 
                 new Company()
@@ -131,6 +141,7 @@ namespace ApiMastery.Data
                     Title = "Sega",
                     Location = "Japan",
                     Image = "./images/sega.png",
+                    Color = "rgb(24, 58, 207)"
                 });
         }
     }

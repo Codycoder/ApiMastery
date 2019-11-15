@@ -12,11 +12,12 @@ namespace ApiMastery.Models
         public string Ability { get; set; }
         public int ID { get; set; }
         public string Image { get; set; }
+        public string Color { get; set; }
 
-        public virtual Company company { get; set; }
+        public virtual Company Company { get; set; }
         public int CompanyID { get; set; }
       
-        public Character(string name, string game, string ability, int id, string image)
+        public Character(string name, string game, string ability, int id, string image, string color)
         {
             Name = name;
             Game = game;
