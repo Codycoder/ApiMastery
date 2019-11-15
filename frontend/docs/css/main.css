@@ -1,17 +1,20 @@
 :root{
     --primary: rgb(255, 237, 133);
-    --accent: rgb(180, 53, 6);
+    --red: rgb(180, 53, 6);
     --blue: rgb(24, 58, 207);
 }
 
 body{
     font-family: 'Press Start 2P', cursive;
-    color: var(--accent);
+    color: var(--red);
     background-color: var(--primary);
 }
 
 #mainIMG{
-    border: .25rem solid var(--blue);
+    border: .25rem solid;
+    border-left-color: var(--red);
+    border-right-color: var(--blue);
+    border-bottom-color: var(--blue);
     border-radius: 10rem;
     align-items: inherit;
     padding: .25rem;
@@ -20,7 +23,7 @@ body{
 }
 
 .charIMG{
-    border: .25rem solid var(--accent);
+    border: .25rem solid var(--red);
     border-radius: 10rem;
     padding: .25rem;
     width: 10.5rem;
@@ -28,7 +31,7 @@ body{
 }
 
 .compIMG{
-    border: .5rem solid var(--accent);
+    border: .5rem solid var(--red);
     border-radius: 20rem;
     padding: .25rem;
     width: 11rem;
@@ -44,7 +47,7 @@ body{
 
 #homeButton, #characterButton, #companyButton{
     font-family: 'Press Start 2P', cursive;
-    background-color: var(--accent);
+    background-color: var(--red);
     color: var(--primary);
     border-radius: 3rem;
     margin-bottom: .5rem;
@@ -66,7 +69,7 @@ body{
 
 #border{
     border-radius: 5rem;
-    border: .25rem solid var(--accent);
+    border: .25rem solid var(--red);
     margin-bottom: .5rem;
 }
 
@@ -74,8 +77,9 @@ body{
     color: var(--blue);
 }
 
-/* #jump{
-} */
+#jump{
+    color: var(--red);
+}
 
 #app{
     display: grid;
