@@ -7,10 +7,12 @@ using System.Collections.Generic;
 using System.Linq;
 using Xunit;
 
+
 namespace ApiMastery.Tests
 {
     public class CharacterControllerTests
     {
+
         private CharacterController underTest;
         IRepository<Character> characterRepo;
 
@@ -25,8 +27,8 @@ namespace ApiMastery.Tests
         {
             var expectedCharacters = new List<Character>()
             {
-                new Character("Name", "Game", "Profession", "Ability", 1, "Image"),
-                new Character("Name", "Game", "Profession", "Ability", 1, "Image")
+                new Character("Name", "Game", "Ability", 1, "Image", "Color"),
+                new Character("Name", "Game", "Ability", 2, "Image", "Color")
         };
             characterRepo.GetAll().Returns(expectedCharacters);
 
@@ -38,7 +40,7 @@ namespace ApiMastery.Tests
         [Fact]
         public void Post_Creates_New_Character()
         {
-            var newCharacter = new Character("Name", "Game", "Profession", "Ability", 1, "Image");
+            var newCharacter = new Character("Name", "Game", "Ability", 1, "Image", "Color");
             var characterList = new List<Character>();
 
             characterRepo.When(t => t.Create(newCharacter))
@@ -55,11 +57,11 @@ namespace ApiMastery.Tests
         public void Delete_Removes_Character()
         {
             var characterId = 1;
-            var deletedCharacter = new Character("Name", "Game", "Profession", "Ability", 1, "Image");
+            var deletedCharacter = new Character("Name", "Game", "Ability", 1, "Image", "Color");
             var characterList = new List<Character>()
             {
                 deletedCharacter,
-                new Character(1, "Name", "image")
+                new Character("Name", "Game", "Ability", 1, "Image", "Color")
         };
 
             characterRepo.GetById(characterId).Returns(deletedCharacter);
@@ -69,29 +71,30 @@ namespace ApiMastery.Tests
 
             var result = underTest.Delete(characterId);
 
-            Assert.DoesNotContain(deletedcharacter, result); /*Does not work in all cases*/
+            Assert.DoesNotContain(deletedCharacter, result); /*Does not work in all cases*/
             //Assert.All(result, item => Assert.Contains("Second item", item.Name));
         }
 
         [Fact]
         public void Put_Updates_Character()
         {
-            var originalCharacter = new Character("Name", "Game", "Profession", "Ability", 1, "Image"); ;
+            var originalCharacter = new Character("Name", "Game", "Ability", 1, "Image", "Color"); ;
             var expectedCharacter = new List<Character>()
             {
                 originalCharacter
             };
-            var updatedCharacter = new Character("Name", "Game", "Profession", "Ability", 1, "Image");
+            var updatedCharacter = new Character("Name", "Game", "Ability", 1, "Image", "Color");
 
             characterRepo.When(t => characterRepo.Update(updatedCharacter))
-                .Do(Callback.First(t => expectedCharacters.Remove(originalCharacter))
-                .Then(t => expectedCharacters.Add(updatedCharacters)));
+                .Do(Callback.First(t => expectedCharacter.Remove(originalCharacter))
+                .Then(t => expectedCharacter.Add(updatedCharacter)));
             characterRepo.GetAll().Returns(expectedCharacter);
 
-            var result = underTest.Put(updatedCharacters);
+            var result = underTest.Put(updatedCharacter);
 
             // Assert.Equal(expectedTodos, result.ToList());
             Assert.All(result, item => Assert.Contains("Updated item", item.Name));
         }
+
     }
 }
